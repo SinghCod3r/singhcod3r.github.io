@@ -1,0 +1,48 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/cache
+
+# Testing & Coverage
+/coverage
+
+# Next.js Build Outputs
+/.next/
+/out/
+/build
+
+# Debug Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment Files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.pem
+
+# Raw input assets & scratch scripts
+Ayush_Singh_Cinematic_Intro.mp4
+mobile_*.png
+test_*.png
+*.pyc
+__pycache__
+singhcod3r_*.json
+singhcod3r_*.svg
+preview_singhcod3r.svg
+update_intro.py
+intro_final.png
+.impeccable/
