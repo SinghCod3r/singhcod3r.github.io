@@ -17,6 +17,10 @@ import PortraitCard from "@/components/PortraitCard";
 import TechStackGrid from "@/components/TechStackGrid";
 import ContactCard from "@/components/ContactCard";
 import KineticFooter from "@/components/KineticFooter";
+import HeroLanding from "@/components/HeroLanding";
+import DynamicIslandNav from "@/components/DynamicIslandNav";
+import MobileMenuDrawer from "@/components/MobileMenuDrawer";
+import { TerminalPromptIcon } from "@/components/Icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +38,7 @@ const projectsData: ProjectData[] = [
     category: "Linux & Systems",
   },
   {
-    title: "Ezy Scripting Language",
+    title: "Ezy -- Scripting Language",
     tagline: "Deterministic interpreter & automation runtime",
     description: "A programming language written from scratch in Python with an indentation-aware lexer, recursive-descent parser, AST, and CLI REPL.",
     image: "/ezy_page_image.png",
@@ -46,25 +50,25 @@ const projectsData: ProjectData[] = [
     category: "Languages & Runtimes",
   },
   {
-    title: "Aura AI Diagnostics",
+    title: "Aura.Ai - Interview Prep",
     tagline: "Clinical review interface for doctors",
     description: "A clean medical web interface for reviewing patient test records, spotting health trends, and viewing vital health charts.",
     image: "/Aurai_landing.png",
     tags: ["Next.js 15", "TypeScript", "Tailwind", "Python", "PyTorch"],
-    live: "https://github.com/SinghCod3r",
-    github: "https://github.com/SinghCod3r",
+    live: "https://auraaiprep.tech/",
+    github: "https://github.com/SinghCod3r/Aura.Ai",
     accent: "coral",
     year: "2025",
     category: "Full Stack Web",
   },
   {
-    title: "MoodBite Gastronomy",
+    title: "MoodBite.AI ",
     tagline: "Personalized healthy meal finder",
     description: "A friendly web app that recommends wholesome meals based on your mood, daily energy, and routine.",
     image: "/moodbite_landing_page.png",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
-    live: "https://github.com/SinghCod3r",
-    github: "https://github.com/SinghCod3r",
+    live: "moodbiteai.vercel.app",
+    github: "https://github.com/SinghCod3r/MoodBite.Ai",
     accent: "lime",
     year: "2024",
     category: "Full Stack Web",
@@ -72,21 +76,26 @@ const projectsData: ProjectData[] = [
 ];
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Lenis Smooth Scroll
+    // Lenis Smooth Scroll with mobile touch sync
     const lenis = new Lenis({
-      duration: 1.1,
-      smoothWheel: true,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      syncTouch: true,
+      syncTouchLerp: 0.075,
+      touchInertiaExponent: 1.6,
+      touchMultiplier: 1.3,
     });
 
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    // Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const ticker = (time: number) => {
+      lenis.raf(time * 1000);
     };
-    const reqId = requestAnimationFrame(raf);
+    gsap.ticker.add(ticker);
+    gsap.ticker.lagSmoothing(0);
 
     // GSAP Kinetic Reveal for Hero Tagline Words
     const words = gsap.utils.toArray<HTMLElement>(".hero-tagline-word");
@@ -139,13 +148,11 @@ export default function Home() {
     });
 
     return () => {
-      cancelAnimationFrame(reqId);
+      gsap.ticker.remove(ticker);
       lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
-  const taglineWords = ["Building", "open-source", "software", "&", "developer", "tools."];
 
   return (
     <main className="relative min-h-screen w-full bg-[#07080a] text-[#f0f0e9] overflow-x-hidden selection:bg-[#d8ff58] selection:text-[#0c0d0e]">
@@ -155,91 +162,45 @@ export default function Home() {
       {/* 2. Fluid Liquid Silk Aurora Canvas */}
       <AuroraCanvas />
 
-      {/* 3. Top Navigation Bar */}
-      <header className="sticky top-0 z-40 w-full backdrop-blur-xl border-b border-white/10 bg-[#07080a]/65 transition-all duration-300">
-        <div className="max-w-[1720px] mx-auto px-4 sm:px-12 lg:px-16 2xl:px-20 h-16 sm:h-20 flex items-center justify-between">
+      {/* 3. Skiper UI Persistent Dynamic Island Navigation */}
+      <DynamicIslandNav />
+
+      {/* 4. Desktop-only Supporting Brand Bar (Minimal & Non-intrusive) */}
+      <header className="hidden md:block absolute top-0 left-0 right-0 z-30 w-full pointer-events-none">
+        <div className="max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 2xl:px-20 h-16 sm:h-20 flex items-center justify-between">
           <a
             href="#hero"
-            className="group flex items-center gap-1.5 text-lg sm:text-xl font-display font-bold tracking-tight text-[#f0f0e9]"
+            className="group pointer-events-auto flex items-center gap-2 sm:gap-2.5 text-base sm:text-lg font-display font-bold tracking-tight text-[#f0f0e9]"
             aria-label="SinghCod3r Home"
           >
-            <span>Singh</span>
-            <span className="text-[#d8ff58] transition-all">Cod3r</span>
+            <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-white/10 bg-white/[0.04] text-[#d8ff58]">
+              <TerminalPromptIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </div>
+            <div className="flex items-baseline">
+              <span className="text-white">Singh</span>
+              <span className="text-[#d8ff58] ml-1">Cod3r</span>
+            </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-[#989c99]">
-            <a href="#about" className="hover:text-[#d8ff58] transition-colors">About</a>
-            <a href="#projects" className="hover:text-[#d8ff58] transition-colors">Projects</a>
-            <a href="#signal" className="hover:text-[#d8ff58] transition-colors">Speaking</a>
-            <a href="#stack" className="hover:text-[#d8ff58] transition-colors">Tech Stack</a>
-          </nav>
+          {/* Center space reserved for the Floating Dynamic Island */}
+          <div className="w-64 lg:w-96" />
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
             <a
               href="/Ayush_Singh.pdf"
               download="Ayush_Singh_Resume.pdf"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#d8ff58]/40 bg-[#d8ff58]/10 hover:bg-[#d8ff58] hover:text-[#0c0d0e] text-[#d8ff58] text-[11px] sm:text-xs font-mono tracking-wider transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] hover:border-white/30 text-[#f0f0e9] text-[11px] sm:text-xs font-mono tracking-wider transition-all duration-200"
               aria-label="Download Ayush Singh Resume"
             >
-              <FileText className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Download</span>
+              <FileText className="w-3 h-3 text-[#d8ff58]" />
               <span>Resume</span>
-            </a>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/20 bg-white/5 hover:bg-[#d8ff58] hover:text-[#0c0d0e] hover:border-[#d8ff58] text-[11px] sm:text-xs font-mono tracking-wider transition-all duration-200"
-            >
-              <span>Contact</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
       </header>
 
-      {/* 4. MINIMAL HERO SECTION: Spacious, fluid, perfectly fit for mobile */}
-      <section
-        id="hero"
-        ref={heroRef}
-        className="relative min-h-[calc(100svh-64px)] sm:min-h-[calc(100vh-80px)] w-full flex flex-col justify-center px-4 sm:px-12 lg:px-16 2xl:px-20 py-8 sm:py-16 max-w-[1720px] mx-auto overflow-hidden [perspective:1000px]"
-      >
-        <div className="max-w-6xl">
-          {/* Large Kinetic Name with Interactive Shape-Changing Letters */}
-          <KineticHeroName />
-
-          {/* Minimal Animated Tagline with GSAP Staggered Words */}
-          <p className="text-xl sm:text-3xl md:text-5xl font-sans font-light tracking-tight text-[#989c99] leading-snug sm:leading-tight mb-8 sm:mb-12">
-            {taglineWords.map((word, i) => (
-              <span
-                key={i}
-                className={`hero-tagline-word inline-block mr-2 sm:mr-3 will-change-transform ${
-                  word === "open-source" || word === "tools." ? "text-[#f0f0e9] font-normal" : ""
-                }`}
-              >
-                {word}
-              </span>
-            ))}
-          </p>
-
-          {/* Single Minimal Action */}
-          <div className="hero-fade flex items-center gap-3 sm:gap-6">
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 sm:gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 hover:bg-[#d8ff58] hover:text-[#0c0d0e] text-[#f0f0e9] text-xs font-mono uppercase tracking-wider transition-all duration-300 active:scale-95"
-            >
-              <span>View Projects</span>
-              <ArrowDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-y-0.5 transition-transform" />
-            </a>
-
-            <a
-              href="#about"
-              className="text-xs font-mono uppercase tracking-wider text-[#989c99] hover:text-[#f0f0e9] transition-colors py-2 px-1"
-            >
-              Learn more →
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* 5. THE REDESIGNED EXPERIMENTAL HERO / LANDING SECTION */}
+      <HeroLanding />
 
       {/* Velocity-aware Scrolling Ribbon */}
       <VelocityRibbon
@@ -395,7 +356,7 @@ export default function Home() {
             </div>
             <div className="pt-4 sm:pt-6 mt-4 border-t border-white/10 text-xs font-mono text-[#989c99] flex justify-between items-center">
               <span>Aug 2026</span>
-              <span className="text-[#ff806d]">↗</span>
+              <span className="text-[#ff806d]"><a href="https://www.youtube.com/watch?v=kZUEEeU0vt4&t=19800s" target="_blank" rel="noreferrer">↗</a></span>
             </div>
           </div>
 

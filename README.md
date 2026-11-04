@@ -40,3 +40,4 @@ npm run build
 ## 📄 License
 
 MIT © [Ayush Singh](https://github.com/SinghCod3r)
+

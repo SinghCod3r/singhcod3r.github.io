@@ -32,3 +32,28 @@ export function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) 
   );
 }
 
+export function LinuxTuxIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 340 340" fill="currentColor" className={className}>
+      {/* Linux Tux Silhouette */}
+      <path d="M170 30c-25 0-45 22-45 50 0 8 2 16 6 23-14 12-23 30-23 50 0 9 2 18 6 26-16 11-26 29-26 50 0 24 14 45 35 55-2 5-3 10-3 16 0 15 14 26 31 26 12 0 22-5 27-13 7 4 15 7 24 7s17-3 24-7c5 8 15 13 27 13 17 0 31-11 31-26 0-6-1-11-3-16 21-10 35-31 35-55 0-21-10-39-26-50 4-8 6-17 6-26 0-20-9-38-23-50 4-7 6-15 6-23 0-28-20-50-45-50z" fill="#ffffff" fillOpacity="0.95" />
+      {/* Belly */}
+      <path d="M170 130c-30 0-55 28-55 68s25 72 55 72 55-32 55-72-25-68-55-68z" fill="#08090b" fillOpacity="0.85" />
+      {/* Eyes */}
+      <circle cx="155" cy="72" r="5" fill="#08090b" />
+      <circle cx="185" cy="72" r="5" fill="#08090b" />
+      {/* Beak */}
+      <path d="M160 85h20l-10 12z" fill="#d8ff58" />
+    </svg>
+  );
+}
+
+export function TerminalPromptIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" y1="19" x2="20" y2="19" />
+    </svg>
+  );
+}
+

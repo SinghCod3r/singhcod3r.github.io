@@ -17,23 +17,23 @@ function KineticChar({ char, index, wordIndex }: KineticCharProps) {
 
   const handlePointerEnter = () => {
     setIsHovered(true);
-    // Playful, elastic shape distortion
-    const randomSkew = (Math.random() - 0.5) * 20;
-    const randomRot = (Math.random() - 0.5) * 16;
+    // Playful, elastic shape distortion on hover / touch
+    const randomSkew = (Math.random() - 0.5) * 16;
+    const randomRot = (Math.random() - 0.5) * 12;
     const stretchMode = Math.random() > 0.5;
-    
+
     setTilt({
-      scaleY: stretchMode ? 1.38 : 0.8,
-      scaleX: stretchMode ? 0.72 : 1.32,
+      scaleY: stretchMode ? 1.25 : 0.85,
+      scaleX: stretchMode ? 0.8 : 1.22,
       skewX: randomSkew,
       rot: randomRot,
-      y: -14,
+      y: -10,
     });
   };
 
   const handlePointerLeave = () => {
     setIsHovered(false);
-    // Spring back to resting geometry
+    // Smoothly spring back to resting geometry
     setTilt({ scaleY: 1, scaleX: 1, skewX: 0, rot: 0, y: 0 });
   };
 
@@ -52,21 +52,19 @@ function KineticChar({ char, index, wordIndex }: KineticCharProps) {
       onClick={handleClick}
       style={{
         transform: isClicked
-          ? "rotateY(360deg) scale(1.15)"
+          ? "rotateY(360deg) scale(1.12)"
           : `translate3d(0, ${tilt.y}px, 0) scaleX(${tilt.scaleX}) scaleY(${tilt.scaleY}) skewX(${tilt.skewX}deg) rotate(${tilt.rot}deg)`,
         transition: isHovered
-          ? "transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease-out, text-shadow 0.15s ease-out"
-          : "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.4s ease-out, text-shadow 0.4s ease-out",
+          ? "transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease-out, text-shadow 0.15s ease-out"
+          : "transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.35s ease-out, text-shadow 0.35s ease-out",
         textShadow: isHovered
-          ? "0 0 28px rgba(216, 255, 88, 0.7), 0 0 50px rgba(216, 255, 88, 0.3)"
-          : "none",
+          ? "0 0 35px rgba(242, 242, 238, 0.9), 0 0 60px rgba(216, 255, 88, 0.3)"
+          : "0 4px 35px rgba(0, 0, 0, 0.85)",
       }}
       className={`hero-char inline-block cursor-pointer select-none will-change-transform transition-colors duration-200 ${
         isHovered
-          ? "text-[#d8ff58] z-20"
-          : wordIndex === 1 && (index === 3 || index === 4)
-          ? "text-[#f0f0e9] hover:text-[#d8ff58]"
-          : "text-[#f0f0e9]"
+          ? "text-white z-20"
+          : "text-[#F2F2EE] hover:text-white"
       }`}
     >
       {char}
@@ -75,60 +73,86 @@ function KineticChar({ char, index, wordIndex }: KineticCharProps) {
 }
 
 export default function KineticHeroName() {
-  const containerRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const word1 = "AYUSH".split("");
   const word2 = "SINGH".split("");
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
-    const chars = gsap.utils.toArray<HTMLElement>(".hero-char");
-    if (chars.length === 0) return;
+    const chars1 = gsap.utils.toArray<HTMLElement>(".hero-char-w1");
+    const chars2 = gsap.utils.toArray<HTMLElement>(".hero-char-w2");
+    if (chars1.length === 0 || chars2.length === 0) return;
 
-    // Entrance: Physical morphing shape-change from squished liquid disc into upright geometric letterform
-    gsap.fromTo(
-      chars,
+    const tl = gsap.timeline({ delay: 0.25 });
+
+    // Staggered morphing entrance for line 1: AYUSH
+    tl.fromTo(
+      chars1,
       {
-        y: 80,
-        scaleY: 0.15,
-        scaleX: 1.8,
-        rotateX: -45,
+        y: 55,
+        scaleY: 0.3,
+        scaleX: 1.5,
         opacity: 0,
       },
       {
         y: 0,
         scaleY: 1,
         scaleX: 1,
-        rotateX: 0,
         opacity: 1,
-        stagger: 0.045,
+        stagger: 0.05,
         duration: 1.2,
-        delay: 0.25,
-        ease: "elastic.out(1, 0.55)",
+        ease: "elastic.out(1, 0.65)",
       }
+    );
+
+    // Staggered morphing entrance for line 2: SINGH
+    tl.fromTo(
+      chars2,
+      {
+        y: 50,
+        scaleY: 0.3,
+        scaleX: 1.5,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        scaleY: 1,
+        scaleX: 1,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 1.2,
+        ease: "elastic.out(1, 0.65)",
+      },
+      "-=0.9"
     );
   }, []);
 
   return (
-    <h1
+    <div
       ref={containerRef}
-      className="text-[clamp(2.1rem,7.8vw,9.5rem)] sm:text-[clamp(3.5rem,8.6vw,10.5rem)] font-display font-bold tracking-tight leading-[0.92] sm:leading-[0.88] uppercase mb-5 sm:mb-8 select-none flex flex-wrap items-baseline gap-x-3 sm:gap-x-8 lg:gap-x-12"
+      className="w-full flex flex-col items-center justify-center select-none text-center"
       aria-label="Ayush Singh"
     >
-      {/* Word 1: AYUSH (guaranteed never to break across lines) */}
-      <span className="inline-flex whitespace-nowrap">
+      {/* LINE 1: AYUSH */}
+      <h1 className="flex flex-nowrap items-baseline justify-center font-display font-black tracking-[-0.04em] uppercase italic leading-[0.84] text-[15vw] sm:text-[13vw] lg:text-[9.5rem] xl:text-[11.5rem] text-[#F2F2EE]">
         {word1.map((char, i) => (
-          <KineticChar key={`w1-${i}`} char={char} index={i} wordIndex={0} />
+          <span key={`w1-${i}`} className="hero-char-w1 inline-block">
+            <KineticChar char={char} index={i} wordIndex={0} />
+          </span>
         ))}
-      </span>
+      </h1>
 
-      {/* Word 2: SINGH (guaranteed never to break across lines) */}
-      <span className="inline-flex whitespace-nowrap">
+      {/* LINE 2: SINGH */}
+      <h2 className="flex flex-nowrap items-baseline justify-center font-display font-black tracking-[-0.04em] uppercase italic leading-[0.82] text-[15vw] sm:text-[13vw] lg:text-[9.5rem] xl:text-[11.5rem] text-[#F2F2EE] -mt-[0.12em] sm:-mt-[0.15em]">
         {word2.map((char, i) => (
-          <KineticChar key={`w2-${i}`} char={char} index={i} wordIndex={1} />
+          <span key={`w2-${i}`} className="hero-char-w2 inline-block">
+            <KineticChar char={char} index={i} wordIndex={1} />
+          </span>
         ))}
-      </span>
-    </h1>
+      </h2>
+    </div>
   );
 }
-

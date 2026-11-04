@@ -206,6 +206,7 @@ export default function IntroLoader({ onComplete }: { onComplete?: () => void })
 
       {/* Skip Button for quick entry */}
       <button
+        id="intro-skip-btn"
         onClick={handleDismiss}
         className="absolute bottom-6 right-6 z-20 text-[11px] font-mono tracking-widest uppercase text-[#989c99]/60 hover:text-[#d8ff58] transition-colors px-3 py-1.5 rounded-full border border-white/10 hover:border-[#d8ff58]/40 bg-black/40 backdrop-blur-md active:scale-95 cursor-pointer"
       >

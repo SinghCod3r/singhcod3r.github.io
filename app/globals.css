@@ -76,6 +76,54 @@ body::before {
   background: var(--lime);
 }
 
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+@supports (-webkit-overflow-scrolling: touch) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Subtle floating animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 15px rgba(216, 255, 88, 0.35));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 30px rgba(216, 255, 88, 0.65));
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
 /* True Frosted Glass Utility */
 .glass-panel {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
@@ -119,6 +167,37 @@ body::before {
 
 .animate-spin-slow {
   animation: spinSlow 24s linear infinite;
+}
+
+/* Dynamic Island & Text Rolling Animations */
+@keyframes rollIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-roll-in {
+  animation: rollIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes islandExpand {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-island-expand {
+  animation: islandExpand 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Reduced motion accessibility */
