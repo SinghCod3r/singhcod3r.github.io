@@ -28,6 +28,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projectsData: ProjectData[] = [
   {
+    slug: "printer-support-resolver",
     title: "Printer Support Resolver",
     tagline: "Linux device driver resolver & capability pipeline",
     description: "A fast Linux tool that matches printers to the right driver in seconds using SQLite indexing and IEEE 1284 IDs, preventing system freezes.",
@@ -40,6 +41,20 @@ const projectsData: ProjectData[] = [
     category: "Linux & Systems",
   },
   {
+    slug: "system-config-printer",
+    title: "system-config-printer",
+    tagline: "Linux Foundation & OpenPrinting infrastructure",
+    description: "Modernized core printer management desktop software for GNOME/Fedora/Ubuntu, revamping device discovery and CUPS print queue configuration.",
+    image: "/system-config-printer_preview1.png",
+    tags: ["Python", "GTK3", "CUPS", "D-Bus", "OpenPrinting"],
+    live: "https://github.com/OpenPrinting/system-config-printer",
+    github: "https://github.com/OpenPrinting/system-config-printer",
+    accent: "lime",
+    year: "2024",
+    category: "Linux & Systems",
+  },
+  {
+    slug: "ezy-language",
     title: "Ezy -- Scripting Language",
     tagline: "Deterministic interpreter & automation runtime",
     description: "A programming language written from scratch in Python with an indentation-aware lexer, recursive-descent parser, AST, and CLI REPL.",
@@ -52,9 +67,10 @@ const projectsData: ProjectData[] = [
     category: "Languages & Runtimes",
   },
   {
+    slug: "aura-ai",
     title: "Aura.Ai - Interview Prep",
-    tagline: "Clinical review interface for doctors",
-    description: "A clean medical web interface for reviewing patient test records, spotting health trends, and viewing vital health charts.",
+    tagline: "Intelligent voice & analytical workflow agent",
+    description: "A clean multi-modal web interface for speech fluency analysis, automated test records, and real-time audio interaction telemetry.",
     image: "/Aurai_landing.png",
     tags: ["Next.js 15", "TypeScript", "Tailwind", "Python", "PyTorch"],
     live: "https://auraaiprep.tech/",
@@ -64,14 +80,15 @@ const projectsData: ProjectData[] = [
     category: "Full Stack Web",
   },
   {
+    slug: "moodbite-ai",
     title: "MoodBite.AI ",
     tagline: "Personalized healthy meal finder",
-    description: "A friendly web app that recommends wholesome meals based on your mood, daily energy, and routine.",
+    description: "A friendly web app that recommends wholesome meals based on your mood, daily energy, and dietary routine.",
     image: "/moodbite_landing_page.png",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
-    live: "moodbiteai.vercel.app",
+    live: "https://moodbiteai.vercel.app",
     github: "https://github.com/SinghCod3r/MoodBite.Ai",
-    accent: "lime",
+    accent: "cyan",
     year: "2024",
     category: "Full Stack Web",
   },
@@ -300,13 +317,22 @@ export default function Home() {
         id="projects"
         className="relative w-full py-12 sm:py-24 md:py-36 px-4 sm:px-12 lg:px-16 2xl:px-20 max-w-[1720px] mx-auto overflow-hidden"
       >
-        <div className="mb-8 sm:mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#a786ff] mb-2 block">
-            Portfolio
-          </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-medium tracking-tight text-[#f0f0e9]">
-            Selected Projects.
-          </h2>
+        <div className="mb-8 sm:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-widest text-[#a786ff] mb-2 block">
+              Portfolio
+            </span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-medium tracking-tight text-[#f0f0e9]">
+              Selected Projects.
+            </h2>
+          </div>
+          <Link
+            href="/projects/"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#d8ff58] hover:underline"
+          >
+            <span>Explore All 5 Architecture Deep Dives</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
         <ProjectsShowcase projects={projectsData} />

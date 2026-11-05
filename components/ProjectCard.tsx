@@ -6,6 +6,7 @@ import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 export interface ProjectData {
+  slug?: string;
   title: string;
   tagline: string;
   description: string;
@@ -127,7 +128,13 @@ export default function ProjectCard({
         <div>
           <div className="flex items-baseline justify-between mb-1.5 sm:mb-2">
             <h3 className="text-xl sm:text-2xl font-display font-semibold tracking-tight text-[#f0f0e9] group-hover:text-white transition-colors">
-              {project.title}
+              {project.slug ? (
+                <a href={`/projects/${project.slug}/`} className="hover:text-[#d8ff58] transition-colors">
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
             </h3>
             <span className="text-[11px] sm:text-xs font-mono text-[#989c99]">{project.year}</span>
           </div>
@@ -136,9 +143,18 @@ export default function ProjectCard({
             {project.tagline}
           </p>
 
-          <p className="text-xs sm:text-sm text-[#989c99] leading-relaxed line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-6 font-light">
+          <p className="text-xs sm:text-sm text-[#989c99] leading-relaxed line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4 font-light">
             {project.description}
           </p>
+
+          {project.slug && (
+            <a
+              href={`/projects/${project.slug}/`}
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#d8ff58] hover:underline mb-2"
+            >
+              <span>Architecture Case Study →</span>
+            </a>
+          )}
         </div>
 
         {/* Bottom Tags & Action Links */}

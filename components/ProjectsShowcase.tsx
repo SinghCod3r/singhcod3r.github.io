@@ -144,7 +144,13 @@ export default function ProjectsShowcase({ projects }: { projects: ProjectData[]
                   {/* Title & Tagline */}
                   <div className="mb-1">
                     <h3 className="text-base font-display font-semibold tracking-tight text-[#f0f0e9]">
-                      {project.title}
+                      {project.slug ? (
+                        <a href={`/projects/${project.slug}/`} className="hover:text-[#d8ff58] transition-colors">
+                          {project.title}
+                        </a>
+                      ) : (
+                        project.title
+                      )}
                     </h3>
                     <p
                       className="text-[11px] font-mono tracking-tight font-medium mt-0.5"
