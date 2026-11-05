@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "njBiYD1R5mTuY_37h2XR498birTtkrHu1GFUzc71LZ8",
+    other: {
+      "msvalidate.01": "5B421CE2BB30697AF2642AA61F17F7A9",
+    },
   },
   keywords: [
     "Ayush Singh",
@@ -162,6 +165,7 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <head>
         <meta name="google-site-verification" content="njBiYD1R5mTuY_37h2XR498birTtkrHu1GFUzc71LZ8" />
+        <meta name="msvalidate.01" content="5B421CE2BB30697AF2642AA61F17F7A9" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

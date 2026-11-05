@@ -112,3 +112,4 @@ if (!fs.existsSync(outDir)) {
 const rssContent = generateRssXml(posts);
 fs.writeFileSync(path.join(outDir, "rss.xml"), rssContent, "utf-8");
 console.log("Successfully generated public/blog/rss.xml with", posts.length, "items.");
+
