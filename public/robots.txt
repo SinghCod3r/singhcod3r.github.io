@@ -1,0 +1,9 @@
+# https://singhcod3r.github.io/robots.txt
+# Directives for search engine crawlers
+
+User-agent: *
+Allow: /
+
+# Canonical Sitemap URL
+Sitemap: https://singhcod3r.github.io/sitemap.xml
+Host: https://singhcod3r.github.io

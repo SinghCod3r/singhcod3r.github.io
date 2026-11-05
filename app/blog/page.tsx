@@ -3,9 +3,19 @@ import BlogView from "@/components/BlogView";
 import { fetchMediumRssPosts } from "@/lib/rss";
 
 export const metadata: Metadata = {
-  title: "Blog & RSS Feed — Ayush Singh (SinghCod3r)",
+  title: "Blog & Technical Dispatches — Ayush Singh (SinghCod3r)",
   description:
     "Live Medium RSS feed and technical engineering dispatches on Linux systems tooling, AI agent containment, and OpenPrinting by Ayush Singh.",
+  alternates: {
+    canonical: "/blog/",
+  },
+  openGraph: {
+    title: "Blog & Technical Dispatches — Ayush Singh (SinghCod3r)",
+    description:
+      "Live Medium RSS feed and technical engineering dispatches on Linux systems tooling, AI agent containment, and OpenPrinting by Ayush Singh.",
+    url: "https://singhcod3r.github.io/blog/",
+    type: "website",
+  },
 };
 
 export default async function BlogPage() {

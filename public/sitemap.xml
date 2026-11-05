@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://singhcod3r.github.io/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/my_image.webp</image:loc>
+      <image:title>Ayush Singh (SinghCod3r) — Software Developer &amp; Open Source Contributor</image:title>
+      <image:caption>Portrait of Ayush Singh (SinghCod3r)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/hero_cinematic_silhouette.webp</image:loc>
+      <image:title>Ayush Singh Hero Silhouette</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/Aurai_landing.png</image:loc>
+      <image:title>AuraAI — Intelligent Voice &amp; Workflow Agent</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/psr.png</image:loc>
+      <image:title>CUPS Printer Setup Tool — OpenPrinting Linux System Software</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/moodbite_landing_page.png</image:loc>
+      <image:title>MoodBite — Intelligent Recipe &amp; Mood Companion</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/ezy_page_image.png</image:loc>
+      <image:title>EzyFind — Hyperlocal Service Directory</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://singhcod3r.github.io/blog/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/blog/gsoc-system-config-printer.png</image:loc>
+      <image:title>Google Summer of Code 2024: system-config-printer Journey</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/blog/ai-agents-containment.png</image:loc>
+      <image:title>The Silent Trap: When AI Agents Stop Asking For Help</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/blog/openprinting-dead-upstream-url.png</image:loc>
+      <image:title>OpenPrinting: Fixing dead upstream URLs</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/blog/openprinting-splix-driver.png</image:loc>
+      <image:title>OpenPrinting: Fixing SpliX Printer Driver Build</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://singhcod3r.github.io/blog/foomatic-db-printer-data.png</image:loc>
+      <image:title>OpenPrinting: Foomatic-db printer data fix</image:title>
+    </image:image>
+  </url>
+</urlset>
