@@ -83,6 +83,99 @@ export const PROJECTS: Project[] = [
     role: "GSoC Contributor @ OpenPrinting",
   },
   {
+    slug: "openprinting-web",
+    title: "OpenPrinting Portal & Documentation Nexus",
+    tagline: "Official Linux Foundation OpenPrinting web infrastructure",
+    description:
+      "Maintainer and core contributor to the official OpenPrinting web portal, documenting modern CUPS 3.x architecture, driverless standards, and subsystems.",
+    fullDescription:
+      "The official web portal of OpenPrinting under The Linux Foundation serves as the primary documentation, standards, and news platform for all UNIX/Linux printing subsystems. As an active maintainer of the repository, spearheaded content modernizations, updated architecture documentation for CUPS 3.x and Driverless IPP standards, and ensured continuous deployment reliability.",
+    architecture:
+      "Jekyll, Liquid templates, responsive HTML5/CSS3, automated GitHub Actions deployment pipeline, and Markdown technical authoring.",
+    highlights: [
+      "Official maintainer of github.com/OpenPrinting/openprinting.github.io",
+      "Authored and updated CUPS 3.x and Driverless Printing architectural documentation",
+      "Streamlined multi-device responsiveness and accessibility for global open-source developers",
+      "Integrated automated CI/CD validation workflows for documentation integrity",
+    ],
+    metrics: [
+      { label: "Organization", value: "Linux Foundation" },
+      { label: "Repository Role", value: "Active Maintainer" },
+      { label: "Readership", value: "Global Linux Devs" },
+      { label: "License", value: "MIT / Open Source" },
+    ],
+    image: "/openprinting_web.webp",
+    tags: ["Jekyll", "Liquid", "Markdown", "OpenPrinting", "Linux Foundation", "CI/CD"],
+    category: "Open Source & Systems",
+    accent: "lime",
+    year: "2024 - Present",
+    live: "https://openprinting.github.io/",
+    github: "https://github.com/OpenPrinting/openprinting.github.io",
+    role: "OpenPrinting Maintainer",
+  },
+  {
+    slug: "foomatic-lookup-site",
+    title: "Foomatic Database Static Lookup Engine",
+    tagline: "High-performance static search engine indexing 6,000+ Linux printer drivers",
+    description:
+      "Engineered a data extraction pipeline compiling 6,000+ printer drivers from upstream Foomatic-DB XML into a lightning-fast, zero-backend static search engine.",
+    fullDescription:
+      "The Linux Foundation's Foomatic-DB holds extensive XML archives defining printer capabilities and driver mappings across hundreds of manufacturers. Co-engineered a high-performance static lookup utility that parses and transforms over 6,000 driver records into an optimized, pre-indexed client-side data structure, allowing Linux users to search compatibility in milliseconds without server overhead.",
+    architecture:
+      "Python XML ETL extraction scripts parsing upstream Foomatic repositories, generating normalized static JSON indices; client-side fuzzy search UI hosted statically on GitHub Pages.",
+    highlights: [
+      "Automated Python extraction pipeline processing 6,000+ driver records from Foomatic-DB",
+      "Instant sub-100ms client-side search across printer manufacturers and IEEE 1284 device IDs",
+      "Zero-maintenance, zero-backend architecture deployed statically on GitHub Pages",
+      "Direct collaboration with OpenPrinting community contributors to modernize printer tooling",
+    ],
+    metrics: [
+      { label: "Drivers Indexed", value: "6,000+ Models" },
+      { label: "Search Latency", value: "< 100ms" },
+      { label: "Pipeline", value: "Python XML ETL" },
+      { label: "Hosting", value: "GitHub Pages" },
+    ],
+    image: "/foomatic_lookup_preview.webp",
+    tags: ["Python", "OpenPrinting", "Foomatic-DB", "Data Pipeline", "ETL", "Static Web"],
+    category: "Open Source & Systems",
+    accent: "violet",
+    year: "2024",
+    live: "https://rudra-iitm.github.io/foomatic-lookup-site/",
+    github: "https://github.com/SinghCod3r/foomatic-lookup-site",
+    role: "Data Pipeline & Core Contributor",
+  },
+  {
+    slug: "floor-and-furnishings",
+    title: "Floor & Furnishings — Web Admin & Mobile Platform",
+    tagline: "Commercial interior decor ecommerce & cross-platform React Native app",
+    description:
+      "Engineered an enterprise interior decor ecommerce platform featuring a full-featured web admin dashboard and cross-platform React Native mobile application.",
+    fullDescription:
+      "Floor and Furnishings is an enterprise interior decor and furnishing management ecosystem built for seamless catalog browsing, multi-channel order fulfillment, and real-time inventory tracking. Developed an end-to-end web administration suite for inventory management, customer analytics, and order fulfillment states alongside a cross-platform React Native mobile application for customer discovery.",
+    architecture:
+      "React Native with Expo for mobile app; Next.js and Tailwind CSS for web admin portal; Node.js, Express, and REST APIs with MongoDB Atlas for scalable order processing and session telemetry.",
+    highlights: [
+      "Complete Web Admin dashboard with real-time inventory management and sales analytics",
+      "Cross-platform React Native mobile application with smooth navigation and cart workflows",
+      "Secure REST API backend with JWT authentication and role-based access control (RBAC)",
+      "Dynamic product filtering by fabric, texture, room dimensions, and color palettes",
+    ],
+    metrics: [
+      { label: "Platform", value: "Web Admin + Mobile" },
+      { label: "Mobile Stack", value: "React Native" },
+      { label: "Admin Stack", value: "Next.js & Node.js" },
+      { label: "Status", value: "Production Live" },
+    ],
+    image: "/fandf_landing.webp",
+    tags: ["React Native", "Next.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    category: "Full Stack Web",
+    accent: "coral",
+    year: "2025",
+    live: "https://www.fandf.online/",
+    github: "https://github.com/SinghCod3r/Floor_and_Furnishings-",
+    role: "Lead Full-Stack & Mobile Developer",
+  },
+  {
     slug: "ezy-language",
     title: "Ezy Scripting Language",
     tagline: "Deterministic interpreter & automation runtime",

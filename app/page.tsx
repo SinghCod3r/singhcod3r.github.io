@@ -23,76 +23,9 @@ import ProjectsShowcase from "@/components/ProjectsShowcase";
 import DynamicIslandNav from "@/components/DynamicIslandNav";
 import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import { TerminalPromptIcon } from "@/components/Icons";
+import { PROJECTS } from "@/lib/projects";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const projectsData: ProjectData[] = [
-  {
-    slug: "printer-support-resolver",
-    title: "Printer Support Resolver",
-    tagline: "Linux device driver resolver & capability pipeline",
-    description: "A fast Linux tool that matches printers to the right driver in seconds using SQLite indexing and IEEE 1284 IDs, preventing system freezes.",
-    image: "/psr.png",
-    tags: ["Python", "SQLite", "CUPS", "PPD", "Pytest"],
-    live: "https://github.com/SinghCod3r/printer-support-resolver",
-    github: "https://github.com/SinghCod3r/printer-support-resolver",
-    accent: "lime",
-    year: "2025",
-    category: "Linux & Systems",
-  },
-  {
-    slug: "system-config-printer",
-    title: "system-config-printer",
-    tagline: "Linux Foundation & OpenPrinting infrastructure",
-    description: "Modernized core printer management desktop software for GNOME/Fedora/Ubuntu, revamping device discovery and CUPS print queue configuration.",
-    image: "/system-config-printer_preview1.png",
-    tags: ["Python", "GTK3", "CUPS", "D-Bus", "OpenPrinting"],
-    live: "https://github.com/OpenPrinting/system-config-printer",
-    github: "https://github.com/OpenPrinting/system-config-printer",
-    accent: "lime",
-    year: "2024",
-    category: "Linux & Systems",
-  },
-  {
-    slug: "ezy-language",
-    title: "Ezy -- Scripting Language",
-    tagline: "Deterministic interpreter & automation runtime",
-    description: "A programming language written from scratch in Python with an indentation-aware lexer, recursive-descent parser, AST, and CLI REPL.",
-    image: "/ezy_page_image.png",
-    tags: ["Python", "AST", "Lexer/Parser", "Pytest", "CLI"],
-    live: "https://singhcod3r.github.io/ezy/",
-    github: "https://github.com/SinghCod3r/ezy",
-    accent: "violet",
-    year: "2025",
-    category: "Languages & Runtimes",
-  },
-  {
-    slug: "aura-ai",
-    title: "Aura.Ai - Interview Prep",
-    tagline: "Intelligent voice & analytical workflow agent",
-    description: "A clean multi-modal web interface for speech fluency analysis, automated test records, and real-time audio interaction telemetry.",
-    image: "/Aurai_landing.png",
-    tags: ["Next.js 15", "TypeScript", "Tailwind", "Python", "PyTorch"],
-    live: "https://auraaiprep.tech/",
-    github: "https://github.com/SinghCod3r/Aura.Ai",
-    accent: "coral",
-    year: "2025",
-    category: "Full Stack Web",
-  },
-  {
-    slug: "moodbite-ai",
-    title: "MoodBite.AI ",
-    tagline: "Personalized healthy meal finder",
-    description: "A friendly web app that recommends wholesome meals based on your mood, daily energy, and dietary routine.",
-    image: "/moodbite_landing_page.png",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
-    live: "https://moodbiteai.vercel.app",
-    github: "https://github.com/SinghCod3r/MoodBite.Ai",
-    accent: "cyan",
-    year: "2024",
-    category: "Full Stack Web",
-  },
-];
 
 export default function Home() {
   const [introDone, setIntroDone] = useState(false);
@@ -330,12 +263,12 @@ export default function Home() {
             href="/projects/"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-[#d8ff58] hover:underline"
           >
-            <span>Explore All 5 Architecture Deep Dives</span>
+            <span>Explore All 8 Architecture Deep Dives</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        <ProjectsShowcase projects={projectsData} />
+        <ProjectsShowcase projects={PROJECTS} />
       </section>
 
       {/* Velocity-aware Scrolling Ribbon (Reverse) */}
