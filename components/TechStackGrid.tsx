@@ -400,24 +400,23 @@ export default function TechStackGrid() {
     const triggers: ScrollTrigger[] = [];
 
     // "Come with animation, go with animation too" - Bidirectional smooth entrance & exit
+    // Pure translateY and opacity (composite-only properties) with zero scale re-rasterization
     clusters.forEach((cluster) => {
       const anim = gsap.fromTo(
         cluster,
         {
           opacity: 0,
-          y: 30,
-          scale: 0.96,
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 0.5,
+          duration: 0.45,
           ease: "power2.out",
           scrollTrigger: {
             trigger: cluster,
-            start: "top 88%",
-            end: "bottom 12%",
+            start: "top 90%",
+            end: "bottom 10%",
             toggleActions: "play reverse play reverse",
           },
         }

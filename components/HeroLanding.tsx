@@ -64,9 +64,10 @@ export default function HeroLanding() {
       "-=0.6"
     );
 
-    // 3. Scroll effect: As user scrolls, the background image stays clearly visible and gains a soft blur
-    // DOES NOT GO BLACK - Opacity is untouched; only subtle blur is applied
-    if (photoScrollRef.current && containerRef.current) {
+    // 3. Scroll effect: As user scrolls, the background image stays clearly visible and gains a soft blur on desktop
+    // On mobile devices, scrubbing CSS filter: blur() causes GPU shader re-rasterization on every touch frame.
+    // Disabling blur scrubbing on mobile keeps mobile scrolling at solid 120Hz refresh rate.
+    if (photoScrollRef.current && containerRef.current && window.innerWidth >= 768) {
       gsap.fromTo(
         photoScrollRef.current,
         {
@@ -130,7 +131,7 @@ export default function HeroLanding() {
               maskImage: "linear-gradient(to bottom, black 0%, black 72%, transparent 98%)",
               WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 72%, transparent 98%)",
             }}
-            className="relative w-[125vw] sm:w-[110vw] max-w-[1100px] md:max-w-[850px] lg:max-w-[880px] xl:max-w-[920px] h-[95vh] sm:h-[105vh] md:h-[80vh] lg:h-[80vh] xl:h-[82vh] -top-14 sm:-top-18 md:-top-4 lg:-top-4 xl:-top-4 flex items-center justify-center will-change-[filter]"
+            className="relative w-[125vw] sm:w-[110vw] max-w-[1100px] md:max-w-[850px] lg:max-w-[880px] xl:max-w-[920px] h-[95vh] sm:h-[105vh] md:h-[80vh] lg:h-[80vh] xl:h-[82vh] -top-14 sm:-top-18 md:-top-4 lg:-top-4 xl:-top-4 flex items-center justify-center"
           >
             <Image
               src="/hero_cinematic_silhouette.webp"

@@ -34,25 +34,38 @@ export default function Home() {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setIntroDone(true);
     }
-    // Lenis Smooth Scroll with mobile touch sync
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      syncTouch: true,
-      syncTouchLerp: 0.075,
-      touchInertiaExponent: 1.6,
-      touchMultiplier: 1.3,
-    });
+    // High refresh-rate mobile scroll optimization:
+    // On mobile touch devices, NEVER hijack touch events with artificial JS lerp scrolling!
+    // Native mobile OS compositor scrolling runs at full 120Hz (ProMotion) / 90Hz hardware refresh rate with zero lag.
+    // Lenis smooth wheel is only enabled on desktop for mouse wheel / trackpad users.
+    const isMobileOrTouch =
+      typeof window !== "undefined" &&
+      (window.innerWidth < 768 ||
+        window.matchMedia("(pointer: coarse)").matches ||
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0);
 
-    // Sync Lenis scroll with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
+    let lenis: Lenis | null = null;
+    let ticker: ((time: number) => void) | null = null;
 
-    const ticker = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-    gsap.ticker.add(ticker);
-    gsap.ticker.lagSmoothing(0);
+    if (!isMobileOrTouch) {
+      lenis = new Lenis({
+        duration: 1.0,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        syncTouch: false,
+      });
+
+      lenis.on("scroll", ScrollTrigger.update);
+
+      ticker = (time: number) => {
+        lenis?.raf(time * 1000);
+      };
+      gsap.ticker.add(ticker);
+    }
+
+    // GSAP default lag smoothing to absorb frame jitter gracefully
+    gsap.ticker.lagSmoothing(500, 33);
 
     // GSAP Kinetic Reveal for Hero Tagline Words
     const words = gsap.utils.toArray<HTMLElement>(".hero-tagline-word");
@@ -105,8 +118,8 @@ export default function Home() {
     });
 
     return () => {
-      gsap.ticker.remove(ticker);
-      lenis.destroy();
+      if (ticker) gsap.ticker.remove(ticker);
+      if (lenis) lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);

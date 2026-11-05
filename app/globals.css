@@ -26,6 +26,8 @@ html {
   background: var(--ink);
   color: var(--paper);
   scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 body {
@@ -54,6 +56,7 @@ body::before {
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
+  transform: translateZ(0);
 }
 
 ::selection {

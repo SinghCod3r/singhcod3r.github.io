@@ -32,24 +32,23 @@ export default function ProjectsShowcase({ projects }: { projects: ProjectData[]
     const triggers: ScrollTrigger[] = [];
 
     // "Come with animation, go with animation too" - Bidirectional smooth entrance & exit
+    // Pure translateY and opacity (composite-only properties) with zero scale re-rasterization
     cards.forEach((card) => {
       const anim = gsap.fromTo(
         card,
         {
           opacity: 0,
-          y: 40,
-          scale: 0.95,
+          y: 24,
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 0.6,
+          duration: 0.45,
           ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 88%",
-            end: "bottom 12%",
+            start: "top 90%",
+            end: "bottom 10%",
             toggleActions: "play reverse play reverse",
           },
         }
@@ -86,7 +85,7 @@ export default function ProjectsShowcase({ projects }: { projects: ProjectData[]
           return (
             <div
               key={project.title}
-              className="mobile-project-scroll-card relative rounded-2xl border border-white/10 bg-[#121316]/80 backdrop-blur-[24px] p-3 sm:p-3.5 flex flex-col min-[340px]:flex-row gap-3 min-[390px]:gap-3.5 overflow-hidden shadow-xl active:scale-[0.99] transition-transform select-none will-change-transform"
+              className="mobile-project-scroll-card relative rounded-2xl border border-white/10 bg-[#121316]/95 backdrop-blur-sm p-3 sm:p-3.5 flex flex-col min-[340px]:flex-row gap-3 min-[390px]:gap-3.5 overflow-hidden shadow-lg active:scale-[0.99] transition-transform select-none"
               style={{
                 boxShadow: `0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)`,
               }}

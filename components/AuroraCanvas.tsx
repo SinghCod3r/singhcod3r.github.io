@@ -20,6 +20,21 @@ export default function AuroraCanvas() {
     let height = 0;
     let time = 0;
 
+    const isMobile =
+      typeof window !== "undefined" &&
+      (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches);
+
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout | number;
+
+    const handleScroll = () => {
+      isScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 120);
+    };
+
     // Fluid pointer physics
     const mouse = {
       x: 0.5,
@@ -35,7 +50,8 @@ export default function AuroraCanvas() {
     const ripples: { x: number; y: number; radius: number; opacity: number }[] = [];
 
     const handleResize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // On mobile, clamp DPR to 1 to reduce GPU fill-rate memory bandwidth by 75%
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width * dpr;
@@ -68,6 +84,12 @@ export default function AuroraCanvas() {
     };
 
     const render = () => {
+      if (isScrolling && isMobile) {
+        // Yield 100% CPU & GPU compositor budget to high-refresh (120Hz) native scrolling
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
       time += 0.008;
 
       // Smooth fluid mouse easing
@@ -121,7 +143,7 @@ export default function AuroraCanvas() {
 
       // 2. Liquid Silk Waves (Flowing organic lines)
       ctx.save();
-      const waveStreams = 5;
+      const waveStreams = isMobile ? 2 : 5;
       for (let i = 0; i < waveStreams; i++) {
         const offset = i * (Math.PI / 3);
         const baseY = height * (0.3 + i * 0.12);
@@ -177,12 +199,15 @@ export default function AuroraCanvas() {
     handleResize();
     window.addEventListener("resize", handleResize);
     window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     render();
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      clearTimeout(scrollTimeout);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
