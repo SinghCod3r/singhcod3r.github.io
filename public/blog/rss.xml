@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:atom="http://www.w3.org/2005/Atom" 
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ayush Singh (SinghCod3r) — Technical Engineering Dispatches</title>
+    <link>https://singhcod3r.github.io/blog/</link>
+    <description>Technical articles and engineering dispatches on Linux systems engineering, OpenPrinting printer driver architecture, and AI agent containment by Ayush Singh.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2026 09:08:54 GMT</lastBuildDate>
+    <atom:link href="https://singhcod3r.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://singhcod3r.github.io/my_image.webp</url>
+      <title>Ayush Singh (SinghCod3r) — Technical Engineering Dispatches</title>
+      <link>https://singhcod3r.github.io/blog/</link>
+    </image>
+    <item>
+      <title><![CDATA[AI Agents Are Getting More Powerful. The Next Big Problem Is Containing Them]]></title>
+      <link>https://singhcod3r.medium.com/ai-agents-are-getting-more-powerful-the-next-big-problem-is-containing-them-18c318ebbd29</link>
+      <guid isPermaLink="true">https://singhcod3r.medium.com/ai-agents-are-getting-more-powerful-the-next-big-problem-is-containing-them-18c318ebbd29</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Ayush Singh]]></dc:creator>
+      <category><![CDATA[AI & Security]]></category>
+      <description><![CDATA[For years, we asked AI to write code. Now we are asking AI to run code. That difference is much bigger than it sounds. A coding assistant that suggests a function is one thing. An autonomous agent with terminal and repo access requires strict sandboxing and least-privilege architecture.]]></description>
+      <enclosure url="https://singhcod3r.github.io/blog/ai-agents-containment.png" length="0" type="image/png" />
+    </item>
+    <item>
+      <title><![CDATA[I Almost Quit Open Source After GSoC 2026 — Then system-config-printer Changed Everything]]></title>
+      <link>https://singhcod3r.medium.com/i-almost-quit-open-source-after-gsoc-2026-then-system-config-printer-changed-everything-49ff8c2707d1</link>
+      <guid isPermaLink="true">https://singhcod3r.medium.com/i-almost-quit-open-source-after-gsoc-2026-then-system-config-printer-changed-everything-49ff8c2707d1</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Ayush Singh]]></dc:creator>
+      <category><![CDATA[Open Source]]></category>
+      <description><![CDATA[How learning Python, finding great mentors, and diving into one Linux project changed the way I think about software engineering. Overcoming burnout and discovering why real-world Linux tools matter.]]></description>
+      <enclosure url="https://singhcod3r.github.io/blog/gsoc-system-config-printer.png" length="0" type="image/png" />
+    </item>
+    <item>
+      <title><![CDATA[Fixing a Dead Upstream URL in OpenPrinting: A Small but Important Contribution]]></title>
+      <link>https://singhcod3r.medium.com/fixing-a-dead-upstream-url-in-openprinting-a-small-but-important-contribution-e07f94526d09</link>
+      <guid isPermaLink="true">https://singhcod3r.medium.com/fixing-a-dead-upstream-url-in-openprinting-a-small-but-important-contribution-e07f94526d09</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Ayush Singh]]></dc:creator>
+      <category><![CDATA[OpenPrinting]]></category>
+      <description><![CDATA[Open-source maintenance often means fixing things that users never notice but depend on every day. A merged pull request tracking broken metadata in driver repositories to keep legacy hardware printing smoothly.]]></description>
+      <enclosure url="https://singhcod3r.github.io/blog/openprinting-dead-upstream-url.png" length="0" type="image/png" />
+    </item>
+    <item>
+      <title><![CDATA[My Pull Request to OpenPrinting Got Merged: Fixing SpliX Driver Metadata]]></title>
+      <link>https://singhcod3r.medium.com/my-pull-request-to-openprinting-got-merged-fixing-splix-driver-metadata-23558cb44dfc</link>
+      <guid isPermaLink="true">https://singhcod3r.medium.com/my-pull-request-to-openprinting-got-merged-fixing-splix-driver-metadata-23558cb44dfc</guid>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Ayush Singh]]></dc:creator>
+      <category><![CDATA[OpenPrinting]]></category>
+      <description><![CDATA[Open source is not only about writing new code. Sometimes, fixing small but critical details makes a big impact. Updating upstream metadata to ensure Samsung and Xerox laser printers match the correct drivers.]]></description>
+      <enclosure url="https://singhcod3r.github.io/blog/openprinting-splix-driver.png" length="0" type="image/png" />
+    </item>
+    <item>
+      <title><![CDATA[My First Merged Pull Request: Regenerating Printer Data from Foomatic-DB]]></title>
+      <link>https://singhcod3r.medium.com/my-first-merged-pull-request-regenerating-printer-data-from-foomatic-db-eba2f7324b34</link>
+      <guid isPermaLink="true">https://singhcod3r.medium.com/my-first-merged-pull-request-regenerating-printer-data-from-foomatic-db-eba2f7324b34</guid>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+      <dc:creator><![CDATA[Ayush Singh]]></dc:creator>
+      <category><![CDATA[Open Source]]></category>
+      <description><![CDATA[How I used foomatic-db to generate complete static printer data and learned from open-source reviews. What it takes to land your very first contribution in an established Linux Foundation project.]]></description>
+      <enclosure url="https://singhcod3r.github.io/blog/foomatic-db-printer-data.png" length="0" type="image/png" />
+    </item>
+  </channel>
+</rss>

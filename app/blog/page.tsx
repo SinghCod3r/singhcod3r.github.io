@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     "Live Medium RSS feed and technical engineering dispatches on Linux systems tooling, AI agent containment, and OpenPrinting by Ayush Singh.",
   alternates: {
     canonical: "/blog/",
+    types: {
+      "application/rss+xml": "/blog/rss.xml",
+    },
   },
   openGraph: {
     title: "Blog & Technical Dispatches — Ayush Singh (SinghCod3r)",

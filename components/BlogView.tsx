@@ -86,14 +86,14 @@ export default function BlogView({ initialPosts, isLiveRss }: BlogViewProps) {
             </span>
             <span className="text-white/20 hidden min-[420px]:inline">•</span>
             <a
-              href="https://medium.com/feed/@Singhcod3r"
+              href="/blog/rss.xml"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1 hover:text-[#d8ff58] transition-colors"
             >
               <Rss className="w-3 h-3 text-[#d8ff58]" />
-              <span className="hidden sm:inline">feed/@Singhcod3r</span>
-              <span className="sm:hidden">Live</span>
+              <span className="hidden sm:inline">/blog/rss.xml</span>
+              <span className="sm:hidden">RSS Feed</span>
             </a>
           </div>
 
@@ -353,13 +353,13 @@ export default function BlogView({ initialPosts, isLiveRss }: BlogViewProps) {
 
               {/* RSS Link Pill */}
               <a
-                href="https://medium.com/feed/@Singhcod3r"
+                href="/blog/rss.xml"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-[11px] font-mono border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] text-[#989c99] hover:text-[#f0f0e9] transition-colors mb-4"
               >
                 <Rss className="w-3 h-3 text-[#d8ff58]" />
-                <span>Raw RSS Feed (XML)</span>
+                <span>Raw RSS Feed (/blog/rss.xml)</span>
               </a>
 
               {/* Social Link Badges */}

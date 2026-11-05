@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "Official portfolio of Ayush Singh (SinghCod3r) — Linux systems engineer, OpenPrinting / The Linux Foundation contributor, compiler creator, and full-stack developer specializing in CUPS, Python developer tooling, and modern web applications.",
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/blog/rss.xml",
+    },
   },
   robots: {
     index: true,
