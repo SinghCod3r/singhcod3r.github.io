@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { X, ArrowUpRight, FileText, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { X, ArrowUpRight, FileText, ChevronDown, BookOpen } from "lucide-react";
 
 interface NavSection {
   id: string;
@@ -72,7 +73,7 @@ function RollingSectionText({ activeLabel }: { activeLabel: string }) {
 /* ========================================================================= */
 /* SKIPER UI DYNAMIC ISLAND NAVIGATION COMPONENT                             */
 /* ========================================================================= */
-export default function DynamicIslandNav() {
+export default function DynamicIslandNav({ visible = true }: { visible?: boolean }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState("hero");
   const islandRef = useRef<HTMLDivElement>(null);
@@ -167,7 +168,11 @@ export default function DynamicIslandNav() {
       {/* Floating Dynamic Island Chassis */}
       <div
         ref={islandRef}
-        className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] select-none will-change-transform"
+        className={`fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] select-none will-change-transform ${
+          visible
+            ? "opacity-100 translate-y-0 pointer-events-auto scale-100"
+            : "opacity-0 -translate-y-10 pointer-events-none scale-95"
+        }`}
       >
         {!isExpanded ? (
           /* =============================================================== */
@@ -285,15 +290,25 @@ export default function DynamicIslandNav() {
               })}
             </nav>
 
-            {/* Footer Action: Resume Download */}
+            {/* Actions: Blog & Resume Download */}
             <div className="pt-2 border-t border-white/10 flex items-center gap-2">
+              <Link
+                href="/blog"
+                onClick={() => setIsExpanded(false)}
+                className="flex-1 py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-white font-mono text-xs font-medium flex items-center justify-center gap-1.5 transition-all duration-200 active:scale-95 group"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-[#a786ff]" />
+                <span>Blog</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#989c99] group-hover:text-white" />
+              </Link>
+
               <a
                 href="/Ayush_Singh.pdf"
                 download="Ayush_Singh_Resume.pdf"
-                className="flex-1 py-2 px-3 rounded-xl bg-white/[0.06] hover:bg-[#d8ff58] text-white hover:text-black font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 group"
+                className="flex-1 py-2 px-3 rounded-xl bg-white/[0.06] hover:bg-[#d8ff58] text-white hover:text-black font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 active:scale-95 group"
               >
                 <FileText className="w-3.5 h-3.5 group-hover:text-black text-[#d8ff58]" />
-                <span>Resume (PDF)</span>
+                <span>Resume</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
               </a>
             </div>

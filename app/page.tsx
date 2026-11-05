@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -18,6 +19,7 @@ import TechStackGrid from "@/components/TechStackGrid";
 import ContactCard from "@/components/ContactCard";
 import KineticFooter from "@/components/KineticFooter";
 import HeroLanding from "@/components/HeroLanding";
+import ProjectsShowcase from "@/components/ProjectsShowcase";
 import DynamicIslandNav from "@/components/DynamicIslandNav";
 import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import { TerminalPromptIcon } from "@/components/Icons";
@@ -76,7 +78,12 @@ const projectsData: ProjectData[] = [
 ];
 
 export default function Home() {
+  const [introDone, setIntroDone] = useState(false);
+
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIntroDone(true);
+    }
     // Lenis Smooth Scroll with mobile touch sync
     const lenis = new Lenis({
       duration: 1.2,
@@ -157,13 +164,13 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full bg-[#07080a] text-[#f0f0e9] overflow-x-hidden selection:bg-[#d8ff58] selection:text-[#0c0d0e]">
       {/* 1. Apple 'Hello'-style Calligraphic Intro Loader */}
-      <IntroLoader />
+      <IntroLoader onComplete={() => setIntroDone(true)} />
 
       {/* 2. Fluid Liquid Silk Aurora Canvas */}
       <AuroraCanvas />
 
       {/* 3. Skiper UI Persistent Dynamic Island Navigation */}
-      <DynamicIslandNav />
+      <DynamicIslandNav visible={introDone} />
 
       {/* 4. Desktop-only Supporting Brand Bar (Minimal & Non-intrusive) */}
       <header className="hidden md:block absolute top-0 left-0 right-0 z-30 w-full pointer-events-none">
@@ -302,11 +309,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-          {projectsData.map((project, idx) => (
-            <ProjectCard key={project.title} project={project} index={idx} />
-          ))}
-        </div>
+        <ProjectsShowcase projects={projectsData} />
       </section>
 
       {/* Velocity-aware Scrolling Ribbon (Reverse) */}
@@ -381,10 +384,8 @@ export default function Home() {
             </div>
           </div>
 
-          <a
-            href="https://medium.com/@Singhcod3r"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/blog"
             className="group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#a786ff]/40 min-h-0 sm:min-h-[340px]"
           >
             <div>
@@ -392,20 +393,20 @@ export default function Home() {
                 <span className="text-[#a786ff] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#a786ff]/10 border border-[#a786ff]/30 text-[11px] sm:text-xs">
                   Technical Blog
                 </span>
-                <span className="text-[#989c99]">Medium</span>
+                <span className="text-[#989c99]">5 Stories</span>
               </div>
               <h3 className="text-lg sm:text-2xl font-display font-semibold text-[#f0f0e9] group-hover:text-[#a786ff] transition-colors mb-2 sm:mb-3">
                 Engineering Notes on Medium
               </h3>
               <p className="text-xs sm:text-sm text-[#989c99] leading-relaxed font-light">
-                Articles on debugging Linux desktop freezes, building interpreters from scratch, and real-world system engineering.
+                Articles on autonomous AI agent containment, Linux desktop freezes, GSoC reflections, and upstream OpenPrinting contributions.
               </p>
             </div>
             <div className="pt-4 sm:pt-6 mt-4 border-t border-white/10 text-xs font-mono text-[#989c99] flex justify-between items-center">
-              <span>@Singhcod3r</span>
-              <span className="text-[#a786ff]">↗</span>
+              <span>Read on /blog</span>
+              <span className="text-[#a786ff]">→</span>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
 

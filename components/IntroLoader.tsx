@@ -34,8 +34,10 @@ export default function IntroLoader({ onComplete }: { onComplete?: () => void })
     const exitTimer = setTimeout(() => {
       setAnimatingOut(true);
       setTimeout(() => {
-        setVisible(false);
         onComplete?.();
+      }, 350);
+      setTimeout(() => {
+        setVisible(false);
       }, 700);
     }, 3300);
 
@@ -45,21 +47,13 @@ export default function IntroLoader({ onComplete }: { onComplete?: () => void })
     };
   }, [onComplete]);
 
-  const handleDismiss = () => {
-    setAnimatingOut(true);
-    setTimeout(() => {
-      setVisible(false);
-      onComplete?.();
-    }, 350);
-  };
-
   if (!visible) return null;
 
   return (
     <div
       role="dialog"
       aria-label="Welcome animation"
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#07080a] text-[#f0f0e9] transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#07080a] text-[#f0f0e9] transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
         animatingOut ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
       }`}
     >
@@ -203,15 +197,6 @@ export default function IntroLoader({ onComplete }: { onComplete?: () => void })
           <span className="w-1.5 h-1.5 rounded-full bg-[#d8ff58] shadow-[0_0_8px_#d8ff58]" />
         </div>
       </div>
-
-      {/* Skip Button for quick entry */}
-      <button
-        id="intro-skip-btn"
-        onClick={handleDismiss}
-        className="absolute bottom-6 right-6 z-20 text-[11px] font-mono tracking-widest uppercase text-[#989c99]/60 hover:text-[#d8ff58] transition-colors px-3 py-1.5 rounded-full border border-white/10 hover:border-[#d8ff58]/40 bg-black/40 backdrop-blur-md active:scale-95 cursor-pointer"
-      >
-        Skip →
-      </button>
 
       <style jsx>{`
         .loader-svg {

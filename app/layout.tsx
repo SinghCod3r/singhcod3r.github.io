@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "SinghCod3r — Ayush Singh | Software Developer & Open Source Contributor",
   description:
     "Portfolio of Ayush Singh (SinghCod3r) — Open source maintainer, Python tooling builder, and web developer.",
+  verification: {
+    google: "njBiYD1R5mTuY_37h2XR498birTtkrHu1GFUzc71LZ8",
+  },
   keywords: [
     "Ayush Singh",
     "SinghCod3r",
@@ -48,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="njBiYD1R5mTuY_37h2XR498birTtkrHu1GFUzc71LZ8" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
