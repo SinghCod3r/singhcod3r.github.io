@@ -291,7 +291,7 @@ export default function Home() {
         id="signal"
         className="relative w-full py-12 sm:py-24 md:py-36 px-4 sm:px-12 lg:px-16 2xl:px-20 max-w-[1720px] mx-auto overflow-hidden"
       >
-        <div className="mb-8 sm:mb-16">
+        <div className="reveal-element mb-8 sm:mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#ff806d] mb-2 block">
             Speaking &amp; Articles
           </span>
@@ -301,7 +301,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          <div className="group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#ff806d]/40 min-h-0 sm:min-h-[340px]">
+          <div className="reveal-element group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#ff806d]/40 min-h-0 sm:min-h-[340px]">
             <div>
               <div className="flex items-center justify-between mb-4 sm:mb-6 text-xs font-mono">
                 <span className="text-[#ff806d] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#ff806d]/10 border border-[#ff806d]/30 text-[11px] sm:text-xs">
@@ -322,7 +322,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#d8ff58]/40 min-h-0 sm:min-h-[340px]">
+          <div className="reveal-element group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#d8ff58]/40 min-h-0 sm:min-h-[340px]">
             <div>
               <div className="flex items-center justify-between mb-4 sm:mb-6 text-xs font-mono">
                 <span className="text-[#d8ff58] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#d8ff58]/10 border border-[#d8ff58]/30 text-[11px] sm:text-xs">
@@ -345,7 +345,7 @@ export default function Home() {
 
           <Link
             href="/blog"
-            className="group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#a786ff]/40 min-h-0 sm:min-h-[340px]"
+            className="reveal-element group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#a786ff]/40 min-h-0 sm:min-h-[340px]"
           >
             <div>
               <div className="flex items-center justify-between mb-4 sm:mb-6 text-xs font-mono">

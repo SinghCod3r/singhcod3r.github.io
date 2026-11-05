@@ -114,7 +114,7 @@ const jsonLdSchema = {
       },
       sameAs: [
         "https://github.com/SinghCod3r",
-        "https://medium.com/@Singhcod3r",
+        "https://singhcod3r.medium.com/",
         "https://www.linkedin.com/in/ayush-singh-cod3r/",
         "https://x.com/SinghCod3r",
       ],

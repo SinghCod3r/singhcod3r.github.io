@@ -127,7 +127,7 @@ export default function ContactCard() {
               },
               {
                 name: "Medium",
-                href: "https://medium.com/@Singhcod3r",
+                href: "https://singhcod3r.medium.com/",
                 icon: BookOpen,
                 color: "#ff806d",
               },

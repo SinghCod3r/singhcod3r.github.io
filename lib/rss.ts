@@ -91,7 +91,7 @@ export async function fetchMediumRssPosts(): Promise<{ posts: MediumPost[]; isLi
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 6000);
 
-    const res = await fetch("https://medium.com/feed/@Singhcod3r", {
+    const res = await fetch("https://singhcod3r.medium.com/feed", {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -124,7 +124,7 @@ export async function fetchMediumRssPosts(): Promise<{ posts: MediumPost[]; isLi
 
       // 2. Link
       const linkMatch = item.match(/<link>([\s\S]*?)<\/link>/);
-      let mediumUrl = linkMatch ? linkMatch[1].trim() : "https://medium.com/@Singhcod3r";
+      let mediumUrl = linkMatch ? linkMatch[1].trim() : "https://singhcod3r.medium.com/";
       mediumUrl = mediumUrl.split("?")[0];
 
       // 3. Date
