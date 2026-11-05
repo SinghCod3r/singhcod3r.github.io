@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 
-# Canonical Sitemap URL
+# Canonical Sitemaps
 Sitemap: https://singhcod3r.github.io/sitemap.xml
+Sitemap: https://singhcod3r.github.io/sitemap_index.xml
 Host: https://singhcod3r.github.io
