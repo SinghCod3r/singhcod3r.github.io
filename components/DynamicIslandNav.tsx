@@ -303,8 +303,7 @@ export default function DynamicIslandNav({ visible = true }: { visible?: boolean
 
               <a
                 href="https://singhcod3r.github.io/blog/"
-                target="_blank"
-                rel="noopener noreferrer"
+                target="_self"
                 onClick={() => setIsExpanded(false)}
                 className="flex-1 py-1.5 px-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-white font-mono text-[11px] font-medium flex items-center justify-center gap-1 transition-all duration-200 active:scale-95 group"
               >

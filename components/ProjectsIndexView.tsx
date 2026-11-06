@@ -78,8 +78,7 @@ export default function ProjectsIndexView({ projects }: ProjectsIndexViewProps) 
 
           <div className="flex items-center gap-3">
             <a
-              href="https://blog.singhcod3r.github.io"
-              target="_blank"
+              href="https://singhcod3r.github.io/blog/"
               rel="noopener noreferrer"
               className="text-xs font-mono px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-[#f0f0e9] transition-colors"
             >
@@ -265,7 +264,7 @@ export default function ProjectsIndexView({ projects }: ProjectsIndexViewProps) 
           <p>© {new Date().getFullYear()} Ayush Singh (SinghCod3r). Open Source Architecture.</p>
           <div className="flex items-center gap-4">
             <Link href="/" className="hover:text-[#f0f0e9] transition-colors">Home</Link>
-            <a href="https://blog.singhcod3r.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-[#f0f0e9] transition-colors">Blog</a>
+            <a href="https://singhcod3r.github.io/blog/" className="hover:text-[#f0f0e9] transition-colors">Blog</a>
             <a href="https://github.com/SinghCod3r" target="_blank" rel="noreferrer" className="hover:text-[#f0f0e9] transition-colors">GitHub</a>
           </div>
         </div>
