@@ -302,7 +302,7 @@ export default function DynamicIslandNav({ visible = true }: { visible?: boolean
               </Link>
 
               <a
-                href="https://blog.singhcod3r.github.io"
+                href="https://singhcod3r.github.io/blog/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsExpanded(false)}
