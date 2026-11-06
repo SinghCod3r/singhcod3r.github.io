@@ -301,14 +301,16 @@ export default function DynamicIslandNav({ visible = true }: { visible?: boolean
                 <span>Projects</span>
               </Link>
 
-              <Link
-                href="/blog"
+              <a
+                href="https://blog.singhcod3r.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsExpanded(false)}
                 className="flex-1 py-1.5 px-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-white font-mono text-[11px] font-medium flex items-center justify-center gap-1 transition-all duration-200 active:scale-95 group"
               >
                 <BookOpen className="w-3 h-3 text-[#a786ff]" />
                 <span>Blog</span>
-              </Link>
+              </a>
 
               <a
                 href="/Ayush_Singh.pdf"

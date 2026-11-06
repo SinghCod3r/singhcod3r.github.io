@@ -357,7 +357,7 @@ export default function Home() {
           </div>
 
           <Link
-            href="/blog"
+            href="/medium-blog"
             className="reveal-element group rounded-2xl sm:rounded-3xl border border-white/15 bg-[#121316]/60 hover:bg-[#121316]/90 backdrop-blur-[30px] p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#a786ff]/40 min-h-0 sm:min-h-[340px]"
           >
             <div>
@@ -375,7 +375,7 @@ export default function Home() {
               </p>
             </div>
             <div className="pt-4 sm:pt-6 mt-4 border-t border-white/10 text-xs font-mono text-[#989c99] flex justify-between items-center">
-              <span>Read on /blog</span>
+              <span>Read on /medium-blog</span>
               <span className="text-[#a786ff]">→</span>
             </div>
           </Link>

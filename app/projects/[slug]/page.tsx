@@ -454,7 +454,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="flex items-center gap-4">
             <Link href="/" className="hover:text-[#f0f0e9] transition-colors">Portfolio</Link>
             <Link href="/projects/" className="hover:text-[#f0f0e9] transition-colors">Projects</Link>
-            <Link href="/blog/" className="hover:text-[#f0f0e9] transition-colors">Blog</Link>
+            <Link href="/medium-blog/" className="hover:text-[#f0f0e9] transition-colors">Medium Blog</Link>
             <a href="https://github.com/SinghCod3r" target="_blank" rel="noreferrer" className="hover:text-[#f0f0e9] transition-colors">GitHub</a>
           </div>
         </div>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-     xmlns:atom="http://www.w3.org/2005/Atom" 
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ayush Singh (SinghCod3r) — Technical Engineering Dispatches</title>
-    <link>https://singhcod3r.github.io/blog/</link>
-    <description>Technical articles and engineering dispatches on Linux systems engineering, OpenPrinting printer driver architecture, and AI agent containment by Ayush Singh.</description>
+    <title>Ayush Singh (SinghCod3r) — Medium Blog Archive</title>
+    <link>https://singhcod3r.github.io/medium-blog/</link>
+    <description>Medium article archive — technical engineering dispatches on Linux systems engineering, OpenPrinting printer driver architecture, and AI agent containment by Ayush Singh.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Nov 2026 09:56:11 GMT</lastBuildDate>
-    <atom:link href="https://singhcod3r.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2026 05:26:02 GMT</lastBuildDate>
+    <atom:link href="https://singhcod3r.github.io/medium-blog/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://singhcod3r.github.io/my_image.webp</url>
-      <title>Ayush Singh (SinghCod3r) — Technical Engineering Dispatches</title>
-      <link>https://singhcod3r.github.io/blog/</link>
+      <title>Ayush Singh (SinghCod3r) — Medium Blog Archive</title>
+      <link>https://singhcod3r.github.io/medium-blog/</link>
     </image>
     <item>
       <title><![CDATA[AI Agents Are Getting More Powerful. The Next Big Problem Is Containing Them]]></title>

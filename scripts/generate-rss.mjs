@@ -59,11 +59,11 @@ const posts = [
 ];
 
 function generateRssXml(items) {
-  const channelTitle = "Ayush Singh (SinghCod3r) — Technical Engineering Dispatches";
-  const channelLink = "https://singhcod3r.github.io/blog/";
+  const channelTitle = "Ayush Singh (SinghCod3r) — Medium Blog Archive";
+  const channelLink = "https://singhcod3r.github.io/medium-blog/";
   const channelDescription =
-    "Technical articles and engineering dispatches on Linux systems engineering, OpenPrinting printer driver architecture, and AI agent containment by Ayush Singh.";
-  const feedUrl = "https://singhcod3r.github.io/blog/rss.xml";
+    "Medium article archive — technical engineering dispatches on Linux systems engineering, OpenPrinting printer driver architecture, and AI agent containment by Ayush Singh.";
+  const feedUrl = "https://singhcod3r.github.io/medium-blog/rss.xml";
   const lastBuildDate = new Date().toUTCString();
 
   const itemsXml = items
@@ -82,8 +82,8 @@ function generateRssXml(items) {
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-     xmlns:atom="http://www.w3.org/2005/Atom" 
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
@@ -104,12 +104,11 @@ ${itemsXml}
 `;
 }
 
-const outDir = path.join(__dirname, "..", "public", "blog");
+const outDir = path.join(__dirname, "..", "public", "medium-blog");
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
 const rssContent = generateRssXml(posts);
 fs.writeFileSync(path.join(outDir, "rss.xml"), rssContent, "utf-8");
-console.log("Successfully generated public/blog/rss.xml with", posts.length, "items.");
-
+console.log("Successfully generated public/medium-blog/rss.xml with", posts.length, "items.");
